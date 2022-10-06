@@ -40,5 +40,4 @@ public abstract class Transport {
 
     abstract void finishMove();
 
-
 }
