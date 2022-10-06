@@ -1,4 +1,4 @@
-package Transport;
+package transport;
 
 public abstract class Transport {
     private final String brand;

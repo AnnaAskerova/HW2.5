@@ -1,9 +1,9 @@
-import Driver.DriverB;
-import Driver.DriverC;
-import Driver.DriverD;
-import Transport.Bus;
-import Transport.Car;
-import Transport.Truck;
+import driver.DriverB;
+import driver.DriverC;
+import driver.DriverD;
+import transport.Bus;
+import transport.Car;
+import transport.Truck;
 
 
 public class Main {

@@ -1,4 +1,4 @@
-package Transport;
+package transport;
 
 public interface Competing {
     void pitstop();

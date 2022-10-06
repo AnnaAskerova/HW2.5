@@ -1,8 +1,8 @@
-package Driver;
+package driver;
 
 
-import Transport.Competing;
-import Transport.Transport;
+import transport.Competing;
+import transport.Transport;
 
 abstract class Driver<T extends Transport & Competing> {
     private final String name;

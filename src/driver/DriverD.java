@@ -1,5 +1,5 @@
-package Driver;
-import Transport.Bus;
+package driver;
+import transport.Bus;
 
 public class DriverD extends Driver<Bus>{
     public DriverD(String name, Integer experience) {
