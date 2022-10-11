@@ -6,7 +6,7 @@ import transport.Transport;
 
 abstract class Driver<T extends Transport & Competing> {
     private final String name;
-    private final char license;
+    private final Character license;
     private Integer experience;
 
     protected Driver(String name, Character license, Integer experience) {
@@ -15,8 +15,10 @@ abstract class Driver<T extends Transport & Competing> {
         } else {
             this.name = name;
         }
-        if (license != 'C' && license != 'B' && license != 'D') {
-            throw new IllegalArgumentException("Некорректные данные");
+        if (license == null) {
+            throw new IllegalArgumentException("Необходимо указать тип прав!");
+        } else if (license != 'C' && license != 'B' && license != 'D') {
+            throw new IllegalArgumentException("Необходимо указать тип прав!");
         } else {
             this.license = license;
         }

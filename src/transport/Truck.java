@@ -52,12 +52,12 @@ public class Truck extends Transport implements Competing {
     }
 
     @Override
-    void startMove() {
+    public void startMove() {
         System.out.println("Начало движения грузовика");
     }
 
     @Override
-    void finishMove() {
+    public void finishMove() {
         System.out.println("Конец движения грузовика");
     }
 
@@ -74,5 +74,10 @@ public class Truck extends Transport implements Competing {
     @Override
     public void maxSpeed() {
         System.out.println("Грузовик разгоняется до максимальной скорости");
+    }
+
+    @Override
+    public boolean passTechnicalInspection() {
+        return (int) (Math.random() * 100) != 90 && (int) (Math.random() * 100) != 96;
     }
 }

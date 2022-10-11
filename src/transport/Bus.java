@@ -18,7 +18,9 @@ public class Bus extends Transport implements Competing {
             return stringCapacity;
         }
     }
+
     private Capacity capacity;
+
     public Bus(String brand, String model, Float engineVolume, String capacity) {
         super(brand, model, engineVolume);
         setCapacity(capacity);
@@ -31,6 +33,7 @@ public class Bus extends Transport implements Competing {
             System.out.println("Вместимость " + capacity.getStringCapacity());
         }
     }
+
     private void setCapacity(String capacity) {
         if (capacity == null || capacity.isBlank()) this.capacity = null;
         else {
@@ -57,12 +60,12 @@ public class Bus extends Transport implements Competing {
     }
 
     @Override
-    void startMove() {
+    public void startMove() {
         System.out.println("Начало движения автобуса");
     }
 
     @Override
-    void finishMove() {
+    public void finishMove() {
         System.out.println("Конец движения автобуса");
     }
 
@@ -79,5 +82,10 @@ public class Bus extends Transport implements Competing {
     @Override
     public void maxSpeed() {
         System.out.println("Автобус разгоняется до максимальной скорости");
+    }
+
+    @Override
+    public boolean passTechnicalInspection() {
+        throw new UnsupportedOperationException("в диагностике не нуждается");
     }
 }

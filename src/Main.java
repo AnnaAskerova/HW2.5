@@ -1,4 +1,9 @@
-import transport.*;
+import transport.Bus;
+import transport.Car;
+import transport.Transport;
+import transport.Truck;
+
+import static login.Data.isPairCorrect;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,7 +32,7 @@ public class Main {
         driverB.printInfo(kia);
         driverC.printInfo(kamaz);
         driverD.printInfo(kiaBus);*/
-        audi.printType();
+      /*  audi.printType();
         kia.printType();
         bmw.printType();
         hyundai.printType();
@@ -38,6 +43,23 @@ public class Main {
         kiaBus.printType();
         intercityBus.printType();
         touristBus.printType();
-        paz.printType();
+        paz.printType();*/
+        isPairCorrect("Anna_Ask", "153_aa", "153_");
+        checkAllVehicles(audi, touristBus, bmw, hyundai, kia, kamaz, ford, howo, isuzu, kiaBus,
+                intercityBus, paz);
     }
+
+    public static void checkAllVehicles(Transport... transports) {
+        for (Transport t : transports) {
+            try {
+                if (!t.passTechnicalInspection()) {
+                    throw new RuntimeException(t.getBrand() + ' ' + t.getModel());
+                }
+            } catch (UnsupportedOperationException e) {
+                System.out.println("Автобус " + t.getBrand() + ' ' + t.getModel() + ' ' + e.getMessage());
+            }
+        }
+    }
+
+
 }

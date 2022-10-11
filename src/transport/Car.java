@@ -80,12 +80,12 @@ public class Car extends Transport implements Competing {
     }
 
     @Override
-    void startMove() {
+    public void startMove() {
         System.out.println("Начало движения а/м");
     }
 
     @Override
-    void finishMove() {
+    public void finishMove() {
         System.out.println("Конец движения а/м");
     }
 
@@ -104,5 +104,8 @@ public class Car extends Transport implements Competing {
         System.out.println("А/м разгоняется до максимальной скорости");
     }
 
-
+    @Override
+    public boolean passTechnicalInspection() {
+        return (int) (Math.random() * 100) != 2 && (int) (Math.random() * 100) != 55;
+    }
 }
