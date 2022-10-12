@@ -36,8 +36,10 @@ public abstract class Transport {
         return engineVolume;
     }
 
-    abstract void startMove();
+    public abstract void startMove();
 
-    abstract void finishMove();
+    public abstract void finishMove();
+
+    public abstract boolean passTechnicalInspection();
 
 }
