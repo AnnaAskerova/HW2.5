@@ -1,27 +1,6 @@
 package transport;
 
 public class Car extends Transport implements Competing {
-    public enum BodyType {
-        SEDAN("Седан"),
-        HATCHBACK("Хэтчбек"),
-        COUPE("Купе"),
-        UNIVERSAL("Универсал"),
-        CROSSOVER("Кроссовер"),
-        SUV("Внедорожник"),
-        PICKUP("Пикап"),
-        VAN("Фургон"),
-        MINIVAN("Минивэн");
-
-        private final String stringBodyType;
-
-        BodyType(String stringBodyType) {
-            this.stringBodyType = stringBodyType;
-        }
-
-        public String getStringBodyType() {
-            return stringBodyType;
-        }
-    }
 
     private BodyType bodyType;
 
@@ -106,6 +85,6 @@ public class Car extends Transport implements Competing {
 
     @Override
     public boolean passTechnicalInspection() {
-        return (int) (Math.random() * 100) != 2 && (int) (Math.random() * 100) != 55;
+        return isInspected();
     }
 }

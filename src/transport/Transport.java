@@ -4,7 +4,15 @@ public abstract class Transport {
     private final String brand;
     private final String model;
     private final Float engineVolume;
+    private boolean isInspected = false;
 
+    public boolean isInspected() {
+        return isInspected;
+    }
+
+    public void setInspected(boolean inspected) {
+        isInspected = inspected;
+    }
 
     public Transport(String brand, String model, Float engineVolume) {
         if (brand == null || brand.isBlank()) {

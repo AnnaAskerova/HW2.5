@@ -1,7 +1,9 @@
+import driver.*;
 import transport.Bus;
 import transport.Car;
 import transport.Transport;
 import transport.Truck;
+
 
 import static login.Data.isPairCorrect;
 
@@ -23,30 +25,20 @@ public class Main {
         Bus touristBus = new Bus("Mercedes-Benz", "Sprinter", 3f, "");
         Bus paz = new Bus("ПАЗ", "Вектор Next", 4.4f, "40-50");
 
-      /*  DriverB driverB = new DriverB("Чак Норрис", 32);
+        DriverB driverB = new DriverB("Чак Норрис", 32);
         driverB.start(audi);
         DriverC driverC = new DriverC("Фома Аквинский", 20);
         driverC.stop(kamaz);
         DriverD driverD = new DriverD("Джо Байден", 40);
         driverD.refillCar(paz);
-        driverB.printInfo(kia);
-        driverC.printInfo(kamaz);
-        driverD.printInfo(kiaBus);*/
-      /*  audi.printType();
-        kia.printType();
-        bmw.printType();
-        hyundai.printType();
-        kamaz.printType();
-        howo.printType();
-        ford.printType();
-        isuzu.printType();
-        kiaBus.printType();
-        intercityBus.printType();
-        touristBus.printType();
-        paz.printType();*/
-        isPairCorrect("Anna_Ask", "153_aa", "153_");
+        driverB.printInfo();
+        driverD.printInfo();
+        driverC.setDrivenVehicle(kamaz);
+        driverC.printInfo();
+      /*  isPairCorrect("Anna_Ask", "153_aa", "153_");
         checkAllVehicles(audi, touristBus, bmw, hyundai, kia, kamaz, ford, howo, isuzu, kiaBus,
-                intercityBus, paz);
+                intercityBus, paz);*/
+
     }
 
     public static void checkAllVehicles(Transport... transports) {

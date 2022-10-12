@@ -9,6 +9,16 @@ abstract class Driver<T extends Transport & Competing> {
     private final Character license;
     private Integer experience;
 
+    public T getDrivenVehicle() {
+        return drivenVehicle;
+    }
+
+    public void setDrivenVehicle(T drivenVehicle) {
+        this.drivenVehicle = drivenVehicle;
+    }
+
+    private T drivenVehicle;
+
     protected Driver(String name, Character license, Integer experience) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Некорректные данные");
@@ -57,9 +67,12 @@ abstract class Driver<T extends Transport & Competing> {
         System.out.println(name + " заправляет " + transport.getBrand());
     }
 
-    public void printInfo(T transport) {
-        System.out.println("Водитель " + name + " управляет " + transport.getBrand() +
-                ' ' + transport.getModel() + " и будет участвовать в заезде");
+    public void printInfo() {
+        if (drivenVehicle == null) {
+            System.out.println("Водителю пока не назначен автомобиль");
+        } else {
+            System.out.println("Водитель " + name + " управляет " +getDrivenVehicle().getBrand() +
+                    ' ' + getDrivenVehicle().getModel() + " и будет участвовать в заезде");
+        }
     }
-
 }
