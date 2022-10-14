@@ -1,11 +1,9 @@
-import driver.*;
-import transport.Bus;
-import transport.Car;
-import transport.Transport;
-import transport.Truck;
+import driver.DriverB;
+import driver.DriverC;
+import driver.DriverD;
+import transport.*;
 
-
-import static login.Data.isPairCorrect;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,18 +24,71 @@ public class Main {
         Bus paz = new Bus("ПАЗ", "Вектор Next", 4.4f, "40-50");
 
         DriverB driverB = new DriverB("Чак Норрис", 32);
-        driverB.start(audi);
         DriverC driverC = new DriverC("Фома Аквинский", 20);
-        driverC.stop(kamaz);
         DriverD driverD = new DriverD("Джо Байден", 40);
-        driverD.refillCar(paz);
-        driverB.printInfo();
+        DriverB driverB1 = new DriverB("Сергей Матвеев", 12);
+        DriverC driverC1 = new DriverC("Владимир Ленин", 30);
+        DriverD driverD1 = new DriverD("Сергей Есенин", 10);
+
+      /*  driverB.printInfo();
         driverD.printInfo();
         driverC.setDrivenVehicle(kamaz);
         driverC.printInfo();
+        System.out.println(kamaz.getDriver().getName());*/
       /*  isPairCorrect("Anna_Ask", "153_aa", "153_");
         checkAllVehicles(audi, touristBus, bmw, hyundai, kia, kamaz, ford, howo, isuzu, kiaBus,
                 intercityBus, paz);*/
+
+        ArrayList<Transport> participants = new ArrayList<>();
+        participants.add(audi);
+        participants.add(bmw);
+        participants.add(kamaz);
+        participants.add(howo);
+        participants.add(paz);
+        participants.add(touristBus);
+        driverB1.setDrivenVehicle(audi);
+        driverB.setDrivenVehicle(bmw);
+        driverC1.setDrivenVehicle(kamaz);
+        driverC.setDrivenVehicle(howo);
+        driverD1.setDrivenVehicle(touristBus);
+        driverD.setDrivenVehicle(paz);
+        Sponsor sponsor1 = new Sponsor("Вася Пупкин", 1200);
+        for (Transport participant : participants) {
+            sponsor1.sponsorRace(participant);
+        }
+        Sponsor sponsor2 = new Sponsor("Снуп Дог", 1400);
+        for (int i = 3; i < participants.size(); i++) {
+            sponsor2.sponsorRace(participants.get(i));
+        }
+        Sponsor sponsor3 = new Sponsor("Данила Бас", 1500);
+        for (int i = 0; i < 5; i++) {
+            sponsor3.sponsorRace(participants.get(i));
+        }
+
+        Mechanic<Car> carMechanic = new Mechanic<>("Джон Доу", "Рога и копыта");
+        Mechanic mechanic = new Mechanic<>("Мэри Роу", "Рога и копыта");
+        Mechanic<Truck> truckMechanic = new Mechanic<>("Ален Делон", "Рога и копыта");
+        Mechanic<Truck> mechanic1 = new Mechanic<>("Макс Пейн", "112 auto");
+        Mechanic<Bus> busMechanic = new Mechanic<>("Эва Перон", "Пони и радуга");
+        carMechanic.inspectVehicle(audi);
+        carMechanic.inspectVehicle(bmw);
+        truckMechanic.inspectVehicle(kamaz);
+        truckMechanic.inspectVehicle(howo);
+        mechanic1.inspectVehicle(howo);
+        mechanic1.inspectVehicle(kamaz);
+        busMechanic.inspectVehicle(paz);
+        busMechanic.inspectVehicle(touristBus);
+        for (Transport participant : participants) {
+            mechanic.inspectVehicle(participant);
+        }
+       /* kamaz.getInfo();
+        audi.getInfo();*/
+        var ss = new ServiceStation<>();
+        ss.fixVehicle();
+        ss.addVehicle(paz);
+        ss.addVehicle(kamaz);
+        ss.addVehicle(bmw);
+        ss.fixVehicle();
 
     }
 
