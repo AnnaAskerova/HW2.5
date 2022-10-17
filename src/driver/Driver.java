@@ -4,10 +4,11 @@ package driver;
 import transport.Competing;
 import transport.Transport;
 
-abstract class Driver<T extends Transport & Competing> {
+public abstract class Driver<T extends Transport & Competing> {
     private final String name;
     private final Character license;
     private Integer experience;
+    private T drivenVehicle;
 
     protected Driver(String name, Character license, Integer experience) {
         if (name == null || name.isBlank()) {
@@ -37,6 +38,15 @@ abstract class Driver<T extends Transport & Competing> {
         return experience;
     }
 
+    public T getDrivenVehicle() {
+        return drivenVehicle;
+    }
+
+    public void setDrivenVehicle(T drivenVehicle) {
+        this.drivenVehicle = drivenVehicle;
+        drivenVehicle.setDriver(this);
+    }
+
     public void setExperience(Integer experience) {
         if (experience == null || experience < 0) {
             throw new IllegalArgumentException("Некорректные данные");
@@ -57,9 +67,12 @@ abstract class Driver<T extends Transport & Competing> {
         System.out.println(name + " заправляет " + transport.getBrand());
     }
 
-    public void printInfo(T transport) {
-        System.out.println("Водитель " + name + " управляет " + transport.getBrand() +
-                ' ' + transport.getModel() + " и будет участвовать в заезде");
+    public void printInfo() {
+        if (drivenVehicle == null) {
+            System.out.println("Водителю пока не назначен автомобиль");
+        } else {
+            System.out.println("Водитель " + name + " управляет " + getDrivenVehicle().getBrand() +
+                    ' ' + getDrivenVehicle().getModel() + " и будет участвовать в заезде");
+        }
     }
-
 }

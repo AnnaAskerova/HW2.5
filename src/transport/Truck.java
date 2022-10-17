@@ -1,21 +1,6 @@
 package transport;
 
 public class Truck extends Transport implements Competing {
-    public enum LoadCapacity {
-        N1("До 3.5"),
-        N2("3.5-12"),
-        N3("Больше 12");
-
-        private final String stringLoadCapacity;
-
-        LoadCapacity(String stringCapacity) {
-            this.stringLoadCapacity = stringCapacity;
-        }
-
-        public String getStringCapacity() {
-            return stringLoadCapacity;
-        }
-    }
 
     private LoadCapacity loadCapacity;
 
@@ -78,6 +63,6 @@ public class Truck extends Transport implements Competing {
 
     @Override
     public boolean passTechnicalInspection() {
-        return (int) (Math.random() * 100) != 90 && (int) (Math.random() * 100) != 96;
+        return isInspected();
     }
 }
