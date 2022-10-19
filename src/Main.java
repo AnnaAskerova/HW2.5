@@ -3,7 +3,8 @@ import driver.DriverC;
 import driver.DriverD;
 import transport.*;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,7 +31,7 @@ public class Main {
         DriverC driverC1 = new DriverC("Владимир Ленин", 30);
         DriverD driverD1 = new DriverD("Сергей Есенин", 10);
 
-        ArrayList<Transport> participants = new ArrayList<>();
+        Set<Transport> participants = new HashSet<>();
         participants.add(audi);
         participants.add(bmw);
         participants.add(kamaz);
@@ -48,12 +49,12 @@ public class Main {
             sponsor1.sponsorRace(participant);
         }
         Sponsor sponsor2 = new Sponsor("Снуп Дог", 1400);
-        for (int i = 3; i < participants.size(); i++) {
-            sponsor2.sponsorRace(participants.get(i));
+        for (Transport participant : participants) {
+            sponsor2.sponsorRace(participant);
         }
         Sponsor sponsor3 = new Sponsor("Данила Бас", 1500);
-        for (int i = 0; i < 5; i++) {
-            sponsor3.sponsorRace(participants.get(i));
+        for (Transport participant : participants) {
+            sponsor3.sponsorRace(participant);
         }
 
         Mechanic<Car> carMechanic = new Mechanic<>("Джон Доу", "Рога и копыта");
@@ -94,6 +95,5 @@ public class Main {
             }
         }
     }
-
 
 }
