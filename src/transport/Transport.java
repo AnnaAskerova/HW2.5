@@ -1,8 +1,9 @@
 package transport;
 
 import driver.Driver;
-import java.util.HashSet;
-import java.util.Set;
+
+import java.util.ArrayList;
+
 
 public abstract class Transport {
     private final String brand;
@@ -10,8 +11,8 @@ public abstract class Transport {
     private final Float engineVolume;
     private boolean isInspected = false;
     private Driver<?> driver;
-    private final Set<Sponsor> sponsors = new HashSet<>();
-    private final Set<Mechanic<?>> mechanics = new HashSet<>();
+    private final ArrayList<Sponsor> sponsors = new ArrayList<>();
+    private final ArrayList<Mechanic<?>> mechanics = new ArrayList<>();
 
     public Transport(String brand, String model, Float engineVolume) {
         if (brand == null || brand.isBlank()) {
@@ -39,11 +40,11 @@ public abstract class Transport {
         isInspected = inspected;
     }
 
-    public Set<Sponsor> getSponsors() {
+    public ArrayList<Sponsor> getSponsors() {
         return sponsors;
     }
 
-    public Set<Mechanic<?>> getMechanics() {
+    public ArrayList<Mechanic<?>> getMechanics() {
         return mechanics;
     }
 
