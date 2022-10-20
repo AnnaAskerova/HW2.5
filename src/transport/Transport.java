@@ -2,8 +2,9 @@ package transport;
 
 import driver.Driver;
 
-import java.util.ArrayList;
+
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -95,4 +96,16 @@ public abstract class Transport {
 
     public abstract boolean passTechnicalInspection();
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport transport = (Transport) o;
+        return Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model) && Objects.equals(engineVolume, transport.engineVolume);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineVolume);
+    }
 }
